@@ -487,9 +487,6 @@ router.beforeEach(async(route, redirect, next) => {
 
     const needLogin = route.matched.some(item => item.meta && item.meta.requireAuth)
     const needSupplierAuth = route.matched.some(item => item.meta && item.meta.supplierAuth)
-
-
-
     // if(!needLogin){  //不需要登陆
     //     next()
     // }else{           //需要登陆
@@ -504,8 +501,6 @@ router.beforeEach(async(route, redirect, next) => {
     //             })
     //         }                     //不需要权限
     //             next()
-
-
     //    }else{       //没登陆过
     //     next({
     //         path: '/login',
@@ -516,7 +511,7 @@ router.beforeEach(async(route, redirect, next) => {
 
     if(route.meta.requireAuth){ // 判断该路由是否需要登录权限
 
-        if(store.state.token !== null && route.name.indexOf('login') < 0){ //判断是否登录,已登录
+        if(store.state.token !== null){ //判断是否登录,已登录
             //供应链权限验证
             if(route.meta.supplierAuth){  //判断是否需要供应链权限
                 store.dispatch('setSupplier').then(res=>{

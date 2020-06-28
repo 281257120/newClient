@@ -193,7 +193,7 @@ export default {
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 111;
+  z-index: 10;
   background: #fff;
   border-top: 1px solid $border-color-split;
   padding-bottom: env(safe-area-inset-bottom);

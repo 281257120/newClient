@@ -1,7 +1,7 @@
 <template>
     <div class="position">
         <!--<van-area title="标题" :area-list="areaList" />-->
-        <van-area title="选择城市" :area-list="areaList" value="110101"/>
+        <van-area title="选择城市" :area-list="areaList" value="110101" @confirm="confirm"  @cancel="cancel" />
 
         <!--<van-area title="标题" :area-list="areaList" :columns-num="2" />-->
         <!--<van-area-->
@@ -22,17 +22,23 @@
         name: "Position",
         data () {
             return{
-                areaList
+                areaList,
+                city: ''
             }
         },
 
-        mounted(){
-            this.$refs.checkbox.toggle();
-        },
+
         methods:{
             confirm(e){
-                console.log(e,111)
+                this.city = e[2].name
+                // console.log(this.city)
+                this.$emit('changeCity',this.city)
+                this.$store.state.positionShow = false;
             },
+            cancel() {
+                this.$store.state.positionShow = false;
+            }
+
         }
 
 
@@ -40,7 +46,5 @@
 </script>
 
 <style scoped>
-    .position{
-        width: 50rem
-    }
+
 </style>

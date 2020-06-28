@@ -5,20 +5,20 @@
     </transition>-->
 
     <!--城市搜索：-->
-    <van-popup
-    v-model= $store.state.positionShow
-    position="left"
-    :sytle="{height:'50%'}"
-    round
-    >
-    <m-position class="position-list" />
-    </van-popup>
+    <!--<van-popup-->
+    <!--v-model= $store.state.positionShow-->
+    <!--position="left"-->
+    <!--:style="{height:'30%',width:'100%'}"-->
+    <!--round-->
+    <!--&gt;-->
+    <!--<m-position class="position-list" />-->
+    <!--</van-popup>-->
 
     <template v-if="bType == 'store'">
-      <ec-search :preview="false" :data="searchStoreData"></ec-search>
+      <!--<ec-search :preview="false" :data="searchStoreData"></ec-search>-->
       <ec-shop-signs :preview="false"></ec-shop-signs>
       <ec-line :preview="false" :data="lineData"></ec-line>
-    </template>
+</template>
     <template v-else-if="bType == 'home'">
       <app-down></app-down>
     </template>
@@ -321,7 +321,7 @@ export default {
   watch: {
     $route(to, from) {
       this.fromId = from.params.id ? parseInt(from.params.id) : 0;
-      this.init(this.fromId);
+      // this.init(this.fromId);
     },
     bonusData() {
       if (this.bonusData && this.bonusData.open == 1) {

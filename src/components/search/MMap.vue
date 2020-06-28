@@ -1,28 +1,30 @@
 <template>
  <div class="m-map">
-   <van-cell is-link @click="showPopup">
-     <p>{{LocationCity}}</p>
-   </van-cell>
-   <!--<van-popup-->
-           <!--v-model="show"-->
-           <!--position="left"-->
-           <!--:sytle="{height:'50%'}"-->
-           <!--round-->
-   <!--&gt;-->
-       <!--<m-position class="position-list" />-->
-   <!--</van-popup>-->
+
+     <p @click="showPopup">{{LocationCity}}</p>
+
+
+     <!--城市搜索：-->
+     <van-popup
+     v-model= $store.state.positionShow
+     position="left"
+     :style="{height:'42%',width:'100%'}"
+     round
+     >
+     <m-position class="position-list" @changeCity="changeCity" />
+     </van-popup>
  </div>
 </template>
 <script>
 import BMap from "BMap";
 import MPosition from "@/components/Position"
 import Vue from 'vue';
-// import { Popup } from 'vant';
-// Vue.use(Popup);
+import { Popup } from 'vant';
+Vue.use(Popup);
 export default {
     name:"m-map",
     components: {
-       // Popup,
+       Popup,
         MPosition,
 
     },
@@ -58,6 +60,10 @@ export default {
       showPopup() {
           this.$store.state.positionShow = !this.$store.state.positionShow
           // console.log(this.$store.state.positionShow)
+      },
+      changeCity(e){
+          console.log(e)
+          this.LocationCity = e
       },
   },
 };
