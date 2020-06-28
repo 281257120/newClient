@@ -4,6 +4,16 @@
           <v-splash v-show="splash"></v-splash>
     </transition>-->
 
+    <!--城市搜索：-->
+    <van-popup
+    v-model= $store.state.positionShow
+    position="left"
+    :sytle="{height:'50%'}"
+    round
+    >
+    <m-position class="position-list" />
+    </van-popup>
+
     <template v-if="bType == 'store'">
       <ec-search :preview="false" :data="searchStoreData"></ec-search>
       <ec-shop-signs :preview="false"></ec-shop-signs>
@@ -36,11 +46,17 @@
     </template>
     <ec-filter-top :preview="false" v-if="bType != 'store'"></ec-filter-top>
 
-   
+
   </div>
 </template>
 
 <script>
+//城市搜索：
+import MPosition from "@/components/Position"
+import Vue from 'vue';
+
+
+
 //node library
 import url from "url";
 import qs from "qs";
@@ -68,6 +84,7 @@ import EcTabDown from "@/components/tab-down/Frontend";
 import EcFilterTop from "@/components/element/FilterTop";
 import AppDown from "@/components/element/AppDown";
 import CommonNav from "@/components/CommonNav";
+
 
 
 // third party components
@@ -102,7 +119,9 @@ export default {
     AppDown,
     CommonNav,
     [Popup.name]: Popup,
-  
+    //城市搜索：
+      MPosition,
+
 
   },
   data() {
@@ -132,7 +151,7 @@ export default {
 
     this.init(load);
   },
-  
+
   mounted() {
     if (this.bType == "index") {
       this.shopConfig();
@@ -180,7 +199,7 @@ export default {
         }
       }
     },
-  
+
 
     setModulesType() {
       let newModulesType = {
@@ -335,6 +354,7 @@ export default {
 }
 </style>
 <style lang="scss" scoped>
+
 .merchantsPopup {
   width: 70%;
   border-radius: 0.5rem;
@@ -364,7 +384,7 @@ export default {
   flex-direction: row;
   justify-content: space-between;
   padding: 4rem 0;
-  
+
 }
 .merchantsPopup .van-radio {
   margin-right: 10px;
@@ -391,4 +411,5 @@ export default {
 }
 
 </style>
+
 

@@ -212,7 +212,7 @@ const router = new Router({
     base: process.env.BASE_URL,
     routes: [
         {path: '/', redirect: '/home'},
-        {path: '/home', name: 'home', component: Home, meta: {title: i18n.t('lang.home')}},
+        {path: '/home', name: 'home', component: Home, meta: {title: i18n.t('lang.home'),keepAlive: true}},
         {path: '/catalog', name: 'catalog', component: Catalog, meta: {title: i18n.t('lang.category')}},
         {path: '/list/:id', name: 'list', component: List, meta: {title: i18n.t('lang.product_list')},keepAlive: true},
         {path: '/goods/:id', name: 'goods', component: Goods,meta: {title: i18n.t('lang.goods_detail_info')}},
@@ -248,7 +248,7 @@ const router = new Router({
         {path: '/storeGoods', name: 'storeGoods', component: StoreGoods, meta: {title: i18n.t('lang.store_goods_page')}},
 
         //user auth
-        {path: '/register', name: 'register', component: Register, meta: {title: i18n.t('lang.register_page')}},        
+        {path: '/register', name: 'register', component: Register, meta: {title: i18n.t('lang.register_page')}},
         {path: '/login', name: 'login', component: Login, meta: {title: i18n.t('lang.account_pwd_login')}},
         {path: '/loginMobile', name: 'loginMobile', component: LoginMobile, meta: {title: i18n.t('lang.login_mobile_page')}},
         {path: '/forget', name: 'forget', component: Forget, meta: {title: i18n.t('lang.forget_password')}},
@@ -266,7 +266,7 @@ const router = new Router({
         {
             path: '/user/account/log',
             name: 'accountLog',
-            component: AccountLog, 
+            component: AccountLog,
             meta: {title: i18n.t('lang.application_record')},
             children: [
                 {
@@ -314,7 +314,7 @@ const router = new Router({
         {path: '/user/auction', name: 'userAuction', component: UserAuction, meta: {requireAuth: true, title:i18n.t('lang.my_auction')}},
 
         {path: '/user/merchants', name: 'merchants', component: Merchants, meta: {requireAuth: true, title:i18n.t('lang.merchants_store')}},
-        
+
         // activity
         {path: '/activity', name: 'activity', component: Activity, meta:{title: i18n.t('lang.activity')}},
         {path: '/activity/detail/:act_id', name: 'activity-detail', component: ActivityDetail, meta:{title: i18n.t('lang.activity_detail')}},
@@ -365,7 +365,7 @@ const router = new Router({
         {path: '/drp/drpinfo', name: 'drp-info', component: DrpInfo, meta:{title: i18n.t('lang.high_grade_vip')}},
         {path: '/drp/protection', name: 'drp-protection', component: DrpProtection, meta:{title: i18n.t('lang.equity_detail')}},
         {path: '/drp/apply', name: 'drp-apply', component: DrpApply, meta:{title: i18n.t('lang.equity_apply')}},
-        
+
         // exchange
         {path: '/exchange', name: 'exchange', component: Exchange, meta:{title: i18n.t('lang.exchange')}},
         {path: '/exchange/detail/:id', name: 'exchange-detail', component: ExchangeDetail, meta:{title: i18n.t('lang.exchange_detail')}},
@@ -433,9 +433,9 @@ const router = new Router({
                 from.meta.savedPosition = document.body.scrollTop
             }
 
-            return { 
+            return {
                 x: 0,
-                y: to.meta.savedPosition || 0 
+                y: to.meta.savedPosition || 0
             }
         }
     }
@@ -466,7 +466,7 @@ router.beforeEach(async(route, redirect, next) => {
         store.dispatch('userLogout')
 
         const roles = await store.dispatch('userRegister',{ ecjiahash:route.query.ecjiahash })
-        
+
         if(roles.status == 'success'){
             localStorage.setItem('token', roles.data)
             store.state.token = roles.data
@@ -478,17 +478,17 @@ router.beforeEach(async(route, redirect, next) => {
     // await uni.getEnv(function(res){
     //     console.log(JSON.stringify(res))
     //     if(res.plus || res.miniprogram){
-    //         uni.redirectTo({  
+    //         uni.redirectTo({
     //             url:'../../pages/goodsDetail/goodsDetail?id=' + that.goods_id
     //         })
     //     }
     // })
-    
+
 
     const needLogin = route.matched.some(item => item.meta && item.meta.requireAuth)
     const needSupplierAuth = route.matched.some(item => item.meta && item.meta.supplierAuth)
 
-  
+
 
     // if(!needLogin){  //不需要登陆
     //     next()
@@ -504,7 +504,7 @@ router.beforeEach(async(route, redirect, next) => {
     //             })
     //         }                     //不需要权限
     //             next()
-            
+
 
     //    }else{       //没登陆过
     //     next({
@@ -513,8 +513,9 @@ router.beforeEach(async(route, redirect, next) => {
     //     })
     //    }
     // }
-    
+
     if(route.meta.requireAuth){ // 判断该路由是否需要登录权限
+
         if(store.state.token !== null && route.name.indexOf('login') < 0){ //判断是否登录,已登录
             //供应链权限验证
             if(route.meta.supplierAuth){  //判断是否需要供应链权限
@@ -541,7 +542,7 @@ router.beforeEach(async(route, redirect, next) => {
                 next()
             //}
         }else{
-            
+
             // console.log('denglu')
             next({
                 path: '/login',
@@ -550,7 +551,7 @@ router.beforeEach(async(route, redirect, next) => {
         }
     }else{ //不要求登录页面路由
         // if(store.state.token == null){ //未登录
-        //     if(route.query.parent_id){  
+        //     if(route.query.parent_id){
         //         //如果parent_id不存在值，直接在路由上添加parent_id把存储到localStorage
         //         localStorage.setItem('parent_id',route.query.parent_id)
         //         parent_id = localStorage.getItem('parent_id')
@@ -586,10 +587,10 @@ router.afterEach((route,from) => {
     let configUrl = window.location.href.split('#')[0];
     let configData = JSON.parse(sessionStorage.getItem('configData'));//获取后台配置
     let userRegion = JSON.parse(localStorage.getItem('userRegion'));//获取定位地址
-    
+
     //全局微信分享
     wxShare.initConfig(configUrl)
-    
+
     //获取定位地址
     if(!userRegion){
         navigator.geolocation.getCurrentPosition(async function(postion){
@@ -624,7 +625,7 @@ router.afterEach((route,from) => {
                 link:url,
                 imgUrl:route.meta.imgUrl || data.wap_logo
             })
-            
+
             sessionStorage.setItem('configData',JSON.stringify(data));
         })
     }else{
@@ -635,7 +636,7 @@ router.afterEach((route,from) => {
             imgUrl:route.meta.imgUrl || configData.wap_logo
         })
     }
-    
+
     // if(u.match(/MicroMessenger/i) == 'micromessenger'){
     //     if(route.path !== location.pathname){
     //         location.replace(url)

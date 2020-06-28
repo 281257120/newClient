@@ -9,15 +9,15 @@ module.exports = {
 		plugins: [
 
 			new webpack.ProvidePlugin({
-	  
+
 			  $:"jquery",
-	  
+
 			  jQuery:"jquery",
-	  
+
 			  "windows.jQuery":"jquery"
-	  
+
 			})
-	  
+
 		  ]
 	  },
 	//publicPath: process.env.NODE_ENV === 'production' ? '/' : '/',
@@ -50,8 +50,7 @@ module.exports = {
 		},
 		open: true,
 		// host: '192.168.124.32',
-		// host: '192.168.0.101',
-
+		host: '192.168.0.101',     //公司
 	},
 
 }

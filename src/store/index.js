@@ -91,7 +91,7 @@ const store = new Vuex.Store({
                     bgColor: ""
                 },
                 list: [
-                    {   
+                    {
                         url: ``,
                         urlCatetory: "",
                         urlName: "",
@@ -122,7 +122,7 @@ const store = new Vuex.Store({
         },
         supplierLoading:false,
         position:0,
-        LocationCity:'定位中'
+        positionShow:false
     },
     actions,
     mutations,
@@ -173,7 +173,7 @@ let aHot = [
 if (module.hot) {
     // 使 actions 和 mutations 成为可热重载模块
     module.hot.accept(aHot, () => {
-      // 加载新模块 
+      // 加载新模块
       store.hotUpdate({
         actions: require('./actions'),
         mutations: require('./mutations'),

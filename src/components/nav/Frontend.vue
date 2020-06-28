@@ -161,12 +161,25 @@ export default {
       if (store.state.token !== null) {
         //  debugger
         // 判断是否已经登录,已登录
-        if (!this.supplierLoading) {
-          //判断是否需要供应链权限,需要
-          this.mAlertToSupplier();
-          console.log(this.show);
+        // if (!this.supplierLoading) {
+        //   //判断是否需要供应链权限,需要
+        //   this.mAlertToSupplier();
+        //   // console.log(this.show);
+        // }else{
+            //判断是否需要供应链权限
+              store.dispatch('setSupplier').then(res=>{
+                  if(res.status == 'success'){
+                      if(res.data){
+                          this.mAlertToSupplier();
+                      }else{
+                          this.$router.push({
+                              name:"supplier"
+                          })
+                      }
+                  }
+              })
         }
-      } else {
+       else {
         //未登录
         this.alertToHome();
       }

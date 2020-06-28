@@ -6,12 +6,12 @@
             <img class="icon" src="../../assets/img/default-img.jpg" alt="" v-else>
             </template>
             <template v-if="authority == 'view'">
-            <router-link :to="{name:'position'}">
-                <i class="iconfont icon-position"></i>
+            <!--<router-link :to="{name:'position'}">-->
+                <!--<i class="iconfont icon-position"></i>-->
                 <!-- <span>{{ lbsCityName }}</span> -->
                 <m-map />
                 <!-- <i class="iconfont icon-moreunfold"></i> -->
-            </router-link>
+            <!--</router-link>-->
             </template>
             <template v-else>
             <!--<a href="javascript:void(0)" class="position" v-if="bPosition" :style="{'color':sFontColor}">
@@ -66,7 +66,7 @@ export default {
         // }
         // if (!this.bStore && !sLbsCityName) {
         //     /**
-        //     * Gps 
+        //     * Gps
         //     **/
         //     let geolocation = new qq.maps.Geolocation(this.sTenKey, "h5")
         //     let options = { timeout: 8000 }
