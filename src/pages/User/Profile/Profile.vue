@@ -18,6 +18,7 @@
                 <h3 v-else>{{ userInfo.username }}</h3>
                 <p><span>{{$t('lang.username')}} </span>{{ userInfo.username }}</p>
               </div>
+
             </div>
           </div>
         </template>
@@ -115,7 +116,7 @@ export default{
     }
 	},
   components: {
-      [Cell.name]: Cell, 
+      [Cell.name]: Cell,
       [CellGroup.name]: CellGroup,
       [Button.name]: Button,
       [Popup.name]: Popup,
@@ -197,7 +198,7 @@ export default{
         if(res.data.status == 'success'){
           Toast.loading({
             duration:1000,
-            message:this.$t('lang.edit_success') 
+            message:this.$t('lang.edit_success')
           })
           this.show = false
         }else{
@@ -219,7 +220,7 @@ export default{
                 })
             })
         }
-      }      
+      }
     }
   }
 }
