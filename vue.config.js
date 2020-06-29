@@ -6,19 +6,6 @@ module.exports = {
 		externals: {
 		    "BMap": "BMap"
 		},
-		plugins: [
-
-			new webpack.ProvidePlugin({
-
-			  $:"jquery",
-
-			  jQuery:"jquery",
-
-			  "windows.jQuery":"jquery"
-
-			})
-
-		  ]
 	  },
 	//publicPath: process.env.NODE_ENV === 'production' ? '/' : '/',
 	// baseUrl: process.env.NODE_ENV === 'production' ? '/static/dist/' : '/',   //从 Vue CLI 3.3 起已弃用，3.3以上请使用publicPath
