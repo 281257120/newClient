@@ -1479,14 +1479,16 @@ const lang = {
     'team_propmt_7': '位小伙伴参团,继续去开团吧。',
 
     //手机端商家入驻
-    'merchants_store': '商家入驻',
+    'merchants_store': '经销商',
     'my_merchants': '我要入驻',
     'company_information_rz': '公司信息认证',
     'contact_information': '联系人信息',
-    'label_sex': '性别：',
-    'label_contact_name': '联系人姓名：',
-    'label_contact_phone': '联系人手机：',
-    'label_dz_email': '电子邮箱：',
+    'label_sex': '性别',
+    // 'label_contact_name': '联系人姓名：',
+    'label_contact_name': '姓名',
+
+    'label_contact_phone': '联系电话',
+    'label_dz_email': '电子邮箱',
     'label_cross_border_supply': '跨境货源：',
     'label_business_license': '营业执照：',
     'upload_business_license': '上传营业执照',
@@ -1757,7 +1759,9 @@ const lang = {
     'supplier_applyreturn': '供应链退换货',
     'supplier_applyreturn_detail': '供应链退换货详情',
     'supplier_shop': '供应链店铺',
-    'supplier_apply': '供应链入驻',
+    // 'supplier_apply': '供应链入驻',
+    'supplier_apply': '供应商',
+
     'video_list': '视频专区',
     'search_list': '搜索列表',
     'qrpay': '扫码',

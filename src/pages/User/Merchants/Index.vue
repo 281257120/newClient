@@ -1,5 +1,6 @@
 <template>
     <div class="merchants" v-if="merchantsInfo">
+
         <div class="step" :class="'step_'+step">
             <template v-if="step == 1">
                 <div class="surface"><img src="../../../assets/img/merchants.jpg" class="img" /></div>
@@ -10,16 +11,16 @@
                     <div class="subtitle"><i>{{$t('lang.contact_information')}}</i></div>
                 </div>
                 <div class="content">
-                    <van-cell-group class="van-cell-noleft m-top08">
-                        <van-cell :title="$t('lang.label_sex')">
-                            <van-radio-group v-model="sex">
-                              <van-radio name="0">{{$t('lang.male')}}</van-radio>
-                              <van-radio name="1">{{$t('lang.woman')}}</van-radio>
-                            </van-radio-group>
-                        </van-cell>
-                        <van-field :label="$t('lang.label_contact_name')" v-model="username" required :placeholder="$t('lang.enter_name')" />
-                        <van-field :label="$t('lang.label_contact_phone')" v-model="mobile" required :placeholder="$t('lang.enter_contact_phone')" />
-                        <van-field :label="$t('lang.label_dz_email')" v-model="email" :placeholder="$t('lang.enter_email')" />
+                    <van-cell-group :style="{paddingBottom:'15px' ,paddingTop:'20px'}" class="van-cell-noleft m-top08">
+                            <van-field class="m-name" :style="{paddingBottom:'15px',textAlign:'center'}" :label="$t('lang.label_contact_name')" v-model="username"  :placeholder="$t('lang.enter_name')"/>
+                            <van-cell class="m-sex" :style="{paddingBottom:'15px',textAlign:'center'}" :title="$t('lang.label_sex')">
+                                <van-radio-group v-model="sex">
+                                    <van-radio name="0">{{$t('lang.male')}}</van-radio>
+                                    <van-radio name="1">{{$t('lang.woman')}}</van-radio>
+                                </van-radio-group>
+                            </van-cell>
+                        <van-field :style="{paddingBottom:'15px',textAlign:'center'}" :label="$t('lang.label_contact_phone')" v-model="mobile"  :placeholder="$t('lang.enter_contact_phone')" />
+                        <van-field :style="{paddingBottom:'0px',textAlign:'center', paddingTop:'20px'}" :label="$t('lang.label_dz_email')" v-model="email" :placeholder="$t('lang.enter_email')" />
                     </van-cell-group>
                 </div>
             </template>
@@ -157,8 +158,8 @@
                 <template v-if="step == 1">
                     <button type="button" @click="merchantStep(1)" class="btn" :class="[checked ? 'btn-lg-red' : 'btn-disabled']">{{$t('lang.iyou_move_into')}}</button>
                 </template>
-                <template v-else-if="step == 2">
-                    <button type="button" @click="merchantStep(2)" class="btn btn-lg-red">{{$t('lang.merchant_step_1')}}</button>
+                <template v-else-if="step == 2" >
+                    <button :style="{width:'82%', height:'5rem', fontSize:'18px'}" type="button" @click="merchantStep(2)" class="btn btn-lg-red">{{$t('lang.merchant_step_1')}}</button>
                 </template>
                 <template v-else-if="step == 3">
                     <button type="button" @click="backStep(3)" class="btn btn-lg-white">{{$t('lang.last_step')}}</button>
@@ -187,6 +188,7 @@
         <van-popup v-model="showBase" :overlay="true" :lock-scroll="true" class="merchants_article">
             <div class="title">{{$t('lang.read_entry_agreement')}}<van-icon name="close" @click="closeArticle" /></div>
             <div class="content" v-html="merchantsGuide.article_content"></div>
+            <div class="m-close" name="close" @click="closeArticle">取消</div>
         </van-popup>
         <van-popup v-model="showCate" class="category-popup">
             <div class="title">{{$t('lang.add_cate')}}</div>
@@ -657,7 +659,7 @@ export default{
 .step .header .title{ font-size: 3rem; color: #333; padding-top: 5.5rem;}
 .step .header .subtitle{ font-size: 1.8rem; padding: 0 2rem; color: #666; padding-top: 1rem; display: inline-block; margin: 0 auto; position: relative;}
 .step .header .subtitle i{ overflow: hidden; position: relative; z-index: 2; background: #ffffff; padding: 0 .5rem; }
-.step .header .subtitle:before{ content: " "; position: absolute; left: 0; right: 0; height: 1px; background: #E6E6E6; top: 66%; }
+.step .header .subtitle:before{ content: " "; position: absolute; left: 50%; right: 0; height: 1px; width:200px;margin-left:-100px;background: #E6E6E6; top: 66%; }
 .step .content{ margin-top: 4rem; }
 .step .content .van-uploader{ color: #666666; }
 .step .content .van-uploader .icon-uploader{ font-size: 14px; color: #D2D4D9; margin-right: 5px; }
@@ -672,7 +674,46 @@ export default{
 .category-list .item .lie{ padding: 5px 20px; color: #999999;}
 .category-list .item .lie span{ margin:0 10px 5px 0; display: inline-block;}
 .category-list .item .lie .iconfont{ font-size: 12px; margin-left: 5px; }
+.btn-bar-radius{margin-top: 6rem}
 
+.m-close{
+    text-align: center;
+    width:40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    position: relative;
+    left: 99%;
+    bottom: 1%;
+    margin-left: -40px;
+}
+/deep/ .van-cell__title{
+    text-align: center !important;
+}
+/deep/ .van-cell__value{
+    margin-right: 20px;
+
+}
+/deep/ .m-name .van-cell__title{
+    letter-spacing: 3rem;
+    position: relative;
+    left:1.4rem;
+    /*margin-left: 0.4rem;*/
+}
+/deep/ .m-sex .van-cell__title {
+    letter-spacing: 3rem;
+    position: relative;
+    left: 1.4rem;
+    /*margin-left: 0.4rem;*/
+}
+
+
+/*#app .step .content .van-cell__value .van-field__body {*/
+    /*padding: 10px;*/
+    /*border: 1px solid #ddd;*/
+    /*border-radius: 11px;*/
+/*}*/
+
+/*.content .van-field{padding: 20px 15px;}*/
 .step_6{ text-align: center; }
 .audit-pic{ padding: 5rem 0 2rem; }
 .audit-pic .img{ width: 70%; margin: 0 auto; }
@@ -681,4 +722,5 @@ export default{
 .audit-type .subtitle{ font-size: 1.8rem; color: #666666; }
 .audit-shopname{ display: inline-block; padding: 1.2rem 1.5rem; background: linear-gradient(-90deg,rgba(45,123,249,1),rgba(61,174,253,1)); margin: 0 auto; color: #ffffff; font-size: 1.5rem; border-radius: 3rem; margin-top: 3rem;}
 .audit-update .audit-shopname{ border-radius: 0; padding: 1.2rem 3rem; }
+
 </style>

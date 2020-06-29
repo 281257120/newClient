@@ -9,7 +9,7 @@
             <!--<router-link :to="{name:'position'}">-->
                 <!--<i class="iconfont icon-position"></i>-->
                 <!-- <span>{{ lbsCityName }}</span> -->
-                <m-map />
+                <!--<m-map />-->
                 <!-- <i class="iconfont icon-moreunfold"></i> -->
             <!--</router-link>-->
             </template>

@@ -272,17 +272,17 @@ export default {
     merchantsChange() {
       this.flag = true;
     },
-    onConfirm() {
-      if (this.result == 0) {
-        this.$router.push({
-          name: "merchants"
-        });
-      } else {
-        this.$router.push({
-          name: "supplier-apply"
-        });
-      }
-    }
+    // onConfirm() {
+    //   if (this.result == 0) {
+    //     this.$router.push({
+    //       name: "merchants"
+    //     });
+    //   } else {
+    //     this.$router.push({
+    //       name: "supplier-apply"
+    //     });
+    //   }
+    // }
   },
   computed: {
     ...mapState({

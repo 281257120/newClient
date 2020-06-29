@@ -256,20 +256,20 @@ export default {
       //     });
       //   }
     },
-    onConfirm() {
-      //选择入住类型并跳转
-      console.log(2);
-
-      if (this.result == 0) {
-        this.$router.push({
-          name: "merchants"
-        });
-      } else {
-        this.$router.push({
-          name: "supplier-apply"
-        });
-      }
-    }
+    // onConfirm() {
+    //   //选择入住类型并跳转
+    //   // console.log(2);
+    //
+    //   if (this.result == 0) {
+    //     this.$router.push({
+    //       name: "merchants"
+    //     });
+    //   } else {
+    //     this.$router.push({
+    //       name: "supplier-apply"
+    //     });
+    //   }
+    // }
   },
   watch: {}
 };

@@ -1754,7 +1754,9 @@ const lang = {
     'supplier_applyreturn': '供应链退换货',
     'supplier_applyreturn_detail': '供应链退换货详情',
     'supplier_shop': '供应链店铺',
-    'supplier_apply': '供应链入驻',
+    // 'supplier_apply': '供应链入驻',
+    'supplier_apply': '供应商',
+
     'video_list': '视频专区',
     'search_list': '搜索列表',
     'qrpay': '扫码',
