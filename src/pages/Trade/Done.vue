@@ -168,7 +168,7 @@ export default{
 
 				if (res.status == 'success') {
 					if (res.data != false) {
-					    debugger
+					    // debugger
 						if(res.data.paycode == 'wxpay'){
 							if(res.data.type == 'wxh5'){
 								that.btn = '<a class="btn btn-submit" href="'+ res.data.mweb_url +'">'+that.$t('lang.wxcallpay')+'</a>'
