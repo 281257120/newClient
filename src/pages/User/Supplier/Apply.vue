@@ -89,7 +89,7 @@
 
             <div class="btn-bar btn-bar-radius">
                 <template v-if="step == 1">
-                    <button type="button" @click="merchantStep(1)" class="btn btn-lg-red">{{$t('lang.supplier_next_1')}}</button>
+                    <button :style="{width:'82%',height:'5rem', fontSize:'18px'}" type="button" @click="merchantStep(1)" class="btn btn-lg-red">{{$t('lang.supplier_next_1')}}</button>
                 </template>
                 <template v-else-if="step == 2">
                     <button type="button" @click="backStep(2)" class="btn btn-lg-white">{{$t('lang.last_step')}}</button>

@@ -196,6 +196,9 @@ export default {
           });
           localStorage.setItem("token", res.data);
           this.token = res.data;
+          this.$router.push({     //注册成功后调回首页（吉浩鑫要求）
+              name: 'home'
+          })
         } else {
           Toast(res.errors.message);
         }

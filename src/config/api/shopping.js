@@ -297,7 +297,8 @@ function getPayList(o){
 function getPayTab(o){
 	return new Promise((reslove, reject) => {
 		axios.get(`${window.ROOT_URL}api/v4/payment/change_payment`,{ params:o }).then(res => {
-			reslove(res.data)
+            console.log(res.data)
+            reslove(res.data)
 		}).catch(err =>{
 			console.error(err)
 		})

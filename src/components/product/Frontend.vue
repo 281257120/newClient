@@ -2,6 +2,7 @@
     <section>
         <ul class="product-list" :class="aClass" v-if="data.isStyleSel == '0'">
             <li v-for="(item, index) in oProlist" :key="index">
+                <!--首页商品生成-->
                 <router-link :to="{name:'goods',params:{id:item.goods_id}}" v-if="authority == 'view'"></router-link>
                 <div class="product-cart" v-if="false">
                     <i class="iconfont icon-cart"></i>

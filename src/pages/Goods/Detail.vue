@@ -4,6 +4,7 @@
         <header class="header-nav-content" :class="{'header-nav-fixed':!scrollState}">
             <van-nav-bar left-arrow @click-left="onClickLeft">
                 <ul class="nav-con-warp" slot="title">
+                    <!--顶部隐藏框-->
                     <li :class="{'active':navActive == index}" v-for="(item,index) in navTabs" :key="index">
                         <template v-if="index == 2">
                             <span @click="commentHandle">{{ item }}</span>
@@ -228,7 +229,7 @@
             </section>
         </section>
 
-        <!-- 加入购物车 -->
+        <!--&lt;!&ndash; 加入购物车 &ndash;&gt;      底部foolter-->
         <van-goods-action>
             <van-goods-action-mini-btn icon="chat" :text="$t('lang.customer_service')" @click="onChat(goods_id,goodsInfo.user_id)" />
             <van-goods-action-mini-btn :icon="collect_icon" :text="$t('lang.collect')" :class="{'curr':is_collect == 1}" @click="collection"/>
@@ -1070,6 +1071,7 @@
             onAddCartClicked(type) {
                 let newAttr = []
                 this.addCartClass = false
+                // debugger
 
                 if (this.attr.length > 0) {
                     newAttr = this.goodsAttrInit
@@ -1120,6 +1122,8 @@
             },
             onSku(e) {
                 let type = e.target.dataset.type;
+                // console.log(e)
+                // debugger
                 if (this.attr.length > 0) {
                     this.showBase = true
                     this.changeAttr()

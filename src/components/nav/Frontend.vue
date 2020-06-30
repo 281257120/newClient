@@ -136,7 +136,7 @@ export default {
       //弹窗去选择框
       const content = window.confirm("您的权限不足，无法访问！");
       if (content) {
-        console.log("弹窗去选择");
+        // console.log("弹窗去选择");
         this.choose();
       }
     },
@@ -157,17 +157,11 @@ export default {
     handleClick(item) {
       // let url = item.url.split("#")[1];
       // this.$router.push({ path: url });
+      if (store.state.token !== null) {        // 判断是否已经登录,已登录
 
-      if (store.state.token !== null) {
-        //  debugger
-        // 判断是否已经登录,已登录
-        // if (!this.supplierLoading) {
-        //   //判断是否需要供应链权限,需要
-        //   this.mAlertToSupplier();
-        //   // console.log(this.show);
-        // }else{
-            //判断是否需要供应链权限
-              store.dispatch('setSupplier').then(res=>{
+          //  debugger
+              store.dispatch('setSupplier').then(res=>{             //判断是否需要供应链权限
+
                   if(res.status == 'success'){
                       if(res.data){
                           this.mAlertToSupplier();

@@ -1,5 +1,6 @@
 <template>
 	<div class="cashier-desk">
+		<!--<a href="javascript:;" class="weizf" data-type="wxpay">微信支付</a><div class="wxzf"><div id="wxpay_dialog" class=""><div class="modal-box"><div class="modal-left"><p><span>请使用 </span><span class="orange">微信 </span><i class="icon icon-qrcode"></i><span class="orange"> 扫一扫</span><br>扫描二维码支付</p><div class="modal-qr"><div class="modal-qrcode"><img src="https://16jbd.16souyun.com/qrcode.php?code_url=weixin%3A%2F%2Fwxpay%2Fbizpayurl%3Fpr%3DaVlbUJy&t=1593507373" /></div><div class="model-info"><img src="https://16jbd.16souyun.com/themes/ecmoban_dsc2017/images/sj.png" class="icon-clock" /><span>二维码有效时长为2小时, 请尽快支付</span></div></div></div><div class="modal-right"><img src="https://16jbd.16souyun.com/themes/ecmoban_dsc2017/images/weixin-qrcode.jpg" /></div></div></div></div>-->
 		<template v-if="payState == 1 || (payState == 3 && presale_final_pay == 1)">
 	  	<van-cell-group class="van-cell-noright">
 	  		<van-cell class="van-cell-title">
@@ -9,6 +10,7 @@
 		<van-cell-group class="van-cell-noright m-top08">
 		  <van-cell :title="$t('lang.online_payment')" class="van-cell-title b-min b-min-b" />
 		  <van-radio-group v-model="pay_id" @change='paymentChange' :disabled="disabled">
+			  <!--支付选项-->
 			  <van-cell v-for="(item,index) in pay_list" :key="index">
 			  	<div class="dopay-list dis-box">
 			  		<div class="left-icon">
@@ -26,7 +28,7 @@
 		<div class="filter-btn">
 			<template v-if="btn == ''">
 				<template v-if="callpayState == 'wxpay'">
-					<a class="btn btn-submit" href="javascript:;" @click="wxcallpay">{{$t('lang.wxcallpay')}}</a>	
+					<a class="btn btn-submit" href="javascript:;" @click="wxcallpay">{{$t('lang.wxcallpay')}}</a>
 				</template>
 				<template v-else>
 					<a class="btn btn-disabled">{{$t('lang.fill_in_payment')}}</a>
@@ -154,18 +156,19 @@ export default{
 			this.$store.dispatch('setPayList', o)
 		},
 		paymentChange(){
+
 			let that = this
 			let o = {
 				order_id:this.doneinfo.order_id,
 				pay_id:this.pay_id
 			}
-
 			that.btn = '<a class="btn btn-disabled">'+that.$t('lang.loading')+'</a>'
 			that.disabled = true
-
 			that.$store.dispatch('setPayTab',o).then((res)=>{
+
 				if (res.status == 'success') {
 					if (res.data != false) {
+					    debugger
 						if(res.data.paycode == 'wxpay'){
 							if(res.data.type == 'wxh5'){
 								that.btn = '<a class="btn btn-submit" href="'+ res.data.mweb_url +'">'+that.$t('lang.wxcallpay')+'</a>'
@@ -175,6 +178,7 @@ export default{
 								that.callpayStateData = res.data
 							}
 						}else{
+					        // console.log(res.data)
 							that.btn = res.data
 						}
 					}else{

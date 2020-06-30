@@ -598,7 +598,7 @@ router.afterEach((route,from) => {
             });
             curPosition(postion,lat,lng)
         },async function(err){
-            console.log(err)
+            // console.log(err)
             let lat = 31.23037;
             let lng = 121.4737;
             let position = await store.dispatch('setPosition',{
