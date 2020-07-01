@@ -16,7 +16,7 @@
  </div>
 </template>
 <script>
-import BMap from "BMap";
+// import BMap from "BMap";  //定位
 import MPosition from "@/components/Position"
 import Vue from 'vue';
 import { Popup } from 'vant';
