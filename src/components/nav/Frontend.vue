@@ -354,4 +354,11 @@ export default {
 .handle-click:hover {
   cursor: pointer;
 }
+.van-radio{
+  padding:1rem
+}
+
+
+
+
 </style>

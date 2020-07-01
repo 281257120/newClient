@@ -35,8 +35,9 @@
     <van-cell-group class="m-top10">
       <van-cell :title="$t('lang.use_help')" :to="{ name: 'help' }" is-link />
     </van-cell-group>
-    <div class="ect-button-more padding-all" v-if="!isWeiXin">
-      <van-button size="large" tag="a" @click="handelLogout">{{$t('lang.drop_out')}}</van-button>
+    <!--<div class="ect-button-more padding-all" v-if="!isWeiXin">-->
+    <div class="ect-button-more padding-all">
+    <van-button size="large" tag="a" @click="handelLogout">{{$t('lang.drop_out')}}</van-button>
     </div>
     <section class="demo-popup" :class="{'active': show == true}">
       <div class="my-box">
