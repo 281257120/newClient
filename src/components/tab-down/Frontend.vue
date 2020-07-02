@@ -3,16 +3,62 @@
         <ul>
             <template v-if="authority == 'view'">
                 <li v-for="(item,index) in list" :key="index" :class="{active:routeName == item.url}"
-                    @click.stop="outerHref(item.url)">
-                    <i></i>
-                    <span>{{ item.desc }}</span>
+                @click.stop="outerHref(item.url)">
+                <i></i>
+                <span>{{ item.desc }}</span>
                 </li>
-            </template>
-            <template v-else>
-                <li v-for="(item,index) in list" :key="index" :class="{active:aActive[index]}">
-                    <i></i>
-                    <span>{{ item.desc }}</span>
-                </li>
+                <!--<li class="active">-->
+                    <!--<i></i>-->
+                    <!--<span>-->
+            <!--<a href="https://16jbd.16souyun.com/mobile/#/home"></a>-->
+            <!--<font style="vertical-align: inherit;">-->
+              <!--<font style="vertical-align: inherit;">首页</font>-->
+            <!--</font>-->
+          <!--</span>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<i></i>-->
+                    <!--<span>-->
+            <!--<a href="https://16jbd.16souyun.com/mobile/#/catalog"></a>-->
+            <!--<font style="vertical-align: inherit;">-->
+              <!--<font style="vertical-align: inherit;">分类</font>-->
+            <!--</font>-->
+          <!--</span>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<i></i>-->
+                    <!--<span>-->
+            <!--<a href="https://16jbd.16souyun.com/mobile/#/search"></a>-->
+            <!--<font style="vertical-align: inherit;">-->
+              <!--<font style="vertical-align: inherit;">搜寻</font>-->
+            <!--</font>-->
+          <!--</span>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<i></i>-->
+                    <!--<span>-->
+            <!--<a href="https://16jbd.16souyun.com/mobile/#/cart"></a>-->
+
+            <!--<font style="vertical-align: inherit;">-->
+              <!--<font style="vertical-align: inherit;">购物车</font>-->
+            <!--</font>-->
+          <!--</span>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<i></i>-->
+                    <!--<span>-->
+            <!--<a href="https://16jbd.16souyun.com/mobile/#/login"></a>-->
+            <!--<font style="vertical-align: inherit;">-->
+              <!--<font style="vertical-align: inherit;">我</font>-->
+            <!--</font>-->
+          <!--</span>-->
+                <!--</li>-->
+            <!--</template>-->
+            <!--<template v-else>-->
+                <!--<li v-for="(item,index) in list" :key="index" :class="{active:aActive[index]}">-->
+                    <!--<i></i>-->
+                    <!--<span>{{ item.desc }}</span>-->
+                <!--</li>-->
             </template>
         </ul>
     </footer>

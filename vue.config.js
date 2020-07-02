@@ -8,8 +8,9 @@ module.exports = {
 		},
 	  },
 	//publicPath: process.env.NODE_ENV === 'production' ? '/' : '/',
-	// baseUrl: process.env.NODE_ENV === 'production' ? '/static/dist/' : '/',   //从 Vue CLI 3.3 起已弃用，3.3以上请使用publicPath
-	publicPath: process.env.NODE_ENV === 'production' ? 'https://16jbd.16souyun.com' : '/',
+    baseUrl: process.env.NODE_ENV === 'production' ? '/static/dist/' : '/',   //从 Vue CLI 3.3 起已弃用，3.3以上请使用publicPath
+
+    // publicPath: process.env.NODE_ENV === 'production' ? 'https://16jbd.16souyun.com' : '/',
 
 	filenameHashing: false,
 	productionSourceMap: false,
