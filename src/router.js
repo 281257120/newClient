@@ -212,7 +212,9 @@ const router = new Router({
     base: process.env.BASE_URL,
     routes: [
         {path: '/', redirect: '/home'},
-        {path: '/home', name: 'home', component: Home, meta: {title: i18n.t('lang.home'),keepAlive: true}},
+        // {path: '/home', name: 'home', component: Home, meta: {title: i18n.t('lang.home'),keepAlive: true}},
+        {path: '/home', name: 'home', component: Home, meta: {title: i18n.t('lang.home')}},
+
         {path: '/catalog', name: 'catalog', component: Catalog, meta: {title: i18n.t('lang.category')}},
         {path: '/list/:id', name: 'list', component: List, meta: {title: i18n.t('lang.product_list')},keepAlive: true},
         {path: '/goods/:id', name: 'goods', component: Goods,meta: {title: i18n.t('lang.goods_detail_info')}},
@@ -587,29 +589,29 @@ router.afterEach((route,from) => {
     wxShare.initConfig(configUrl)
 
     //获取定位地址
-    if(!userRegion){
-        navigator.geolocation.getCurrentPosition(async function(postion){
-            //谷歌定位到
-            let lat = postion.coords.latitude;
-            let lng = postion.coords.longitude;
-            let position = await store.dispatch('setPosition',{
-                lat:lat,
-                lng:lng
-            });
-            curPosition(postion,lat,lng)
-        },async function(err){
-            // console.log(err)
-            let lat = 31.23037;
-            let lng = 121.4737;
-            let position = await store.dispatch('setPosition',{
-                lat:lat,
-                lng:lng
-            });
-
-            //谷歌定位不到默认定位到上海
-            curPosition(position,lat,lng)
-        })
-    }
+    // if(!userRegion){
+    //     navigator.geolocation.getCurrentPosition(async function(postion){
+    //         //谷歌定位到
+    //         let lat = postion.coords.latitude;
+    //         let lng = postion.coords.longitude;
+    //         let position = await store.dispatch('setPosition',{
+    //             lat:lat,
+    //             lng:lng
+    //         });
+    //         curPosition(postion,lat,lng)
+    //     },async function(err){
+    //         // console.log(err)
+    //         let lat = 31.23037;
+    //         let lng = 121.4737;
+    //         let position = await store.dispatch('setPosition',{
+    //             lat:lat,
+    //             lng:lng
+    //         });
+    //
+    //         //谷歌定位不到默认定位到上海
+    //         curPosition(position,lat,lng)
+    //     })
+    // }
     //
     // //获取shopConfig后台配置
     if(!configData){
