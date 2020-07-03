@@ -143,7 +143,6 @@
                 //弹窗去首页
                 const content = window.alert("您的权限不足，无法访问！");
                 if (content) {
-                    console.log(111)
                     this.$router.push({
                         name: "home"
                     });

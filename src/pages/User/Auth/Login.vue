@@ -65,9 +65,9 @@
         {{$t('lang.register_prompt_notic')}}
         <a href="javascript:;" @click="articleHref">{{$t('lang.register_prompt_1')}}</a>
       </p>
-      <!-- <div class="user-login-list">
+      <div class="user-login-list">
                 <router-link :to="{name:'loginMobile'}" class="list-new">{{$t('lang.account_pwd_login')}}<i class="iconfont icon-more"></i></router-link>
-      </div>-->
+      </div>
     </div>
 
     <van-popup v-model="articleShow" class="shareImg" overlay-class="shareImg-overlay">

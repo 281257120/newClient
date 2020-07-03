@@ -212,8 +212,7 @@ const router = new Router({
     base: process.env.BASE_URL,
     routes: [
         {path: '/', redirect: '/home'},
-        {path: '/home', name: 'home', component: Home, meta: {title: i18n.t('lang.home'),keepAlive: true}},   //定位缓存
-        // {path: '/home', name: 'home', component: Home, meta: {title: i18n.t('lang.home')}},
+        {path: '/home', name: 'home', component: Home, meta: {title: i18n.t('lang.home'),keepAlive: true}},
         {path: '/catalog', name: 'catalog', component: Catalog, meta: {title: i18n.t('lang.category')}},
         {path: '/list/:id', name: 'list', component: List, meta: {title: i18n.t('lang.product_list')},keepAlive: true},
         {path: '/goods/:id', name: 'goods', component: Goods,meta: {title: i18n.t('lang.goods_detail_info')}},

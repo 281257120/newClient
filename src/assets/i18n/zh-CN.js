@@ -1748,7 +1748,7 @@ const lang = {
     'team_user': '拼团会员',
     'topic_detail': '专题详情',
 
-    'supplier_search': '供应链搜索',
+    'supplieer_search': '供应链搜索',
     'supplier_detail': '供应链详情',
     'supplier_list': '供应链列表',
     'supplier_cart': '供应链购物车',
