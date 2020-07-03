@@ -97,7 +97,8 @@
                                                     </template>
                                                     <template v-else>
                                                         <template v-if="(item.goods_cause && item.goods_cause.length == 0) || item.extension_code == 'virtual_card' || item.extension_code == 'package_buy'">
-                                                            <a href="javascript:void(0);" class="btn-default-new disabled">{{$t('lang.apply_return')}}</a>
+                                                            <!--<a href="javascript:void(0);" class="btn-default-new disabled">{{$t('lang.apply_return')}}</a>-->
+                                                            <a href="tel:0357-2591666" class="call-people">0357-2591666</a>
                                                         </template>
                                                         <template v-else>
                                                             <a v-if="orderRefound.all_refound != 1" href="javascript:void(0);" class="btn-default-new" @click="applyRefound(item.rec_id,orderRefound.order_id)">{{$t('lang.apply_return')}}</a>
@@ -278,3 +279,8 @@ export default{
     }
 }
 </script>
+<style>
+    .call-people{
+        color:#00cc66 !important;
+    }
+</style>

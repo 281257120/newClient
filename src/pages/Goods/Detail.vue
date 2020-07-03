@@ -67,21 +67,21 @@
                 </div>
             </div>
 
-            <div class="hig-vip" v-if="goodsInfo.is_drp && goodsInfo.drp_shop == 0">
-                <div class="hig-vip-warp">
-                    <div class="text">
-                        <i><img src="../../assets/img/newuser/icon-vip.png" class="img"></i>
-                        <template v-if="goodsInfo.membership_card_discount_price > 0">
-                            高级VIP享超值优惠价{{goodsInfo.membership_card_discount_price_formated}}
-                        </template>
-                        <template v-else>高级VIP可享超值优惠价</template>
-                    </div>
-                    <div class="vip-register">
-                        <a href="javascript:;" v-if="isLogin" @click="onVipRegister"><span>{{$t('lang.immediately_opened')}}</span><i class="iconfont icon-more"></i></a>
-                        <router-link :to="{ name: 'login' }" v-else><span>{{$t('lang.immediately_opened')}}</span><i class="iconfont icon-more"></i></router-link>
-                    </div>
-                </div>
-            </div>
+            <!--<div class="hig-vip" v-if="goodsInfo.is_drp && goodsInfo.drp_shop == 0">-->
+                <!--<div class="hig-vip-warp">-->
+                    <!--<div class="text">-->
+                        <!--<i><img src="../../assets/img/newuser/icon-vip.png" class="img"></i>-->
+                        <!--<template v-if="goodsInfo.membership_card_discount_price > 0">-->
+                            <!--高级VIP享超值优惠价{{goodsInfo.membership_card_discount_price_formated}}-->
+                        <!--</template>-->
+                        <!--<template v-else>高级VIP可享超值优惠价</template>-->
+                    <!--</div>-->
+                    <!--<div class="vip-register">-->
+                        <!--<a href="javascript:;" v-if="isLogin" @click="onVipRegister"><span>{{$t('lang.immediately_opened')}}</span><i class="iconfont icon-more"></i></a>-->
+                        <!--<router-link :to="{ name: 'login' }" v-else><span>{{$t('lang.immediately_opened')}}</span><i class="iconfont icon-more"></i></router-link>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
 
             <div class="goods_title" :class="{'goods_title_active':goodsInfo.promote_end_date > 0 &&  goodsInfo.promote_start_date > 0}">
                 <h3 class="twolist-hidden">

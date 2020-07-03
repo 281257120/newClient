@@ -30,12 +30,13 @@
       :preview="false"
       :modules-index="index"
     >{{ item }}</component>
+
     <template v-if="bType == 'store'">
       <ec-shop-menu :preview="false"></ec-shop-menu>
       <CommonNav></CommonNav>
     </template>
     <template v-else>
-      <ec-tab-down v-if="bType !='store'"></ec-tab-down>
+      <!--<ec-tab-down v-if="bType !='store'"></ec-tab-down>-->
 
       <!--天降红包-->
       <van-popup v-model="bonusShow" class="bonus-show" v-if="bonusData" style="width: 80%;">

@@ -683,8 +683,11 @@ export default{
     border-radius: 5px;
     position: relative;
     left: 99%;
+    top:0;
+    margin-top: -10px;
     bottom: 1%;
     margin-left: -40px;
+
 }
 /deep/ .van-cell__title{
     text-align: center !important;

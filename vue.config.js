@@ -8,10 +8,12 @@ module.exports = {
 		},
 	  },
 	//publicPath: process.env.NODE_ENV === 'production' ? '/' : '/',
-	// baseUrl: process.env.NODE_ENV === 'production' ? '/static/dist/' : '/',   //从 Vue CLI 3.3 起已弃用，3.3以上请使用publicPath
-	publicPath: process.env.NODE_ENV === 'production' ? 'https://16jbd.16souyun.com' : '/',
+	baseUrl: process.env.NODE_ENV === 'production' ? '/static/dist/' : '/',   //从 Vue CLI 3.3 起已弃用，3.3以上请使用publicPath
+	// publicPath: process.env.NODE_ENV === 'production' ? 'https://16jbd.16souyun.com' : '/',
+    // baseUrl: process.env.NODE_ENV === 'production' ? '/static/dist/zfb/' : '/',   //从 Vue CLI 3.3 起已弃用，3.3以上请使用publicPath  支付宝专用路径
 
-	filenameHashing: false,
+
+    filenameHashing: false,
 	productionSourceMap: false,
 	pages: {
 		index: 'src/main.js',
@@ -39,6 +41,7 @@ module.exports = {
 		// host: '192.168.124.32',
 		// host: ' 192.168.0.102',       //公司wifi
 		// host:'192.168.0.102',        //公司本机
+		//  host:'192.168.0.109',
 	},
 
 }
