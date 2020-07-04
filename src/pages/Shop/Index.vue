@@ -25,6 +25,7 @@
 		 		</div>
 		 	</div>
 		 </div>
+
 		 <div class="store-info" v-waterfall-lower="loadMore" waterfall-disabled="disabled" waterfall-offset="400">
 		 	<div class="store-list" v-for="(item,index) in shopList" :key="index">
 		 		<header class="goods-shop-info padding-all">
@@ -33,6 +34,7 @@
 						<div class="g-s-i-title box-flex" @click="shopDetail(item.user_id)">
 							<h3>{{ item.rz_shopName }}</h3>
 							<p>{{$t('lang.collection_one')}} <span>{{ item.count_gaze }}</span> {{$t('lang.collection_two')}}</p>
+							<!--距离-->
 							<p class="distance">{{$t('lang.distance')}}{{ item.distance }}km</p>
 						</div>
 						<div class="g-s-info-add">
@@ -67,11 +69,13 @@
 			</template>
 		 </div>
 		 <Region :display.sync="regionShow" :regionOptionDate.sync="regionOptionDate"></Region>
-	 </div>
+        <CommonNav></CommonNav>
+    </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import CommonNav from '@/components/CommonNav'
 
 import {
 	List,
@@ -141,8 +145,10 @@ export default{
 		[Dialog.name]:Dialog,
 		[List.name]:List,
 		[Loading.name]:Loading,
-		[Toast.name]:Toast
-	},
+		[Toast.name]:Toast,
+        CommonNav
+
+    },
 	directives: {
 		WaterfallLower: Waterfall('lower'),
 		WaterfallUpper: Waterfall('upper')

@@ -3,8 +3,9 @@
         <section class="list" v-for="(item, index) in data.list" :key="index" :style="liStyle">
             <template v-if="item.sort==5">
                 <div @click="handleClick(item)" class="handle-click"></div>
-                <!-- <a href="javascript:;" @click="merchantsChange"></a> -->
-                <!-- <a v-href="{sUrl:item.url,preview:preview}"></a> -->
+            </template>
+            <template v-else-if="item.sort==7">
+                <div @click="handleClick7(item)" class="handle-click"></div>
             </template>
             <template v-else>
                 <a v-href="{sUrl:item.url,preview:preview}"></a>
@@ -132,6 +133,12 @@
             }
         },
         methods: {
+            handleClick7(item){
+                let url = item.url.split('#')[1];
+                this.$router.push({
+                    path:url
+                })
+            },
             mAlertToSupplier() {
                 //弹窗去选择框
                 const content = window.confirm("您的权限不足，无法访问！");
