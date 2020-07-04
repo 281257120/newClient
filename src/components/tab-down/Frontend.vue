@@ -89,55 +89,58 @@
         },
         methods: {
             outerHref(val) {
-                let that = this;
-                if (that.authority == "view") {
-                    if (
-                        val == "home" ||
-                        val == "catalog" ||
-                        val == "search" ||
-                        val == "user"
-                    ) {
-                        setTimeout(() => {
-                            uni.getEnv(function (res) {
-                                if (res.plus || res.miniprogram) {
-                                    if (val == "home") {
-                                        uni.reLaunch({
-                                            url: "../../pages/index/index"
-                                        });
-                                    } else if (val == "catalog") {
-                                        uni.reLaunch({
-                                            url: "../../pages/category/category"
-                                        });
-                                    } else if (val == "search") {
-                                        uni.reLaunch({
-                                            // url: "../../pages/search/search",
-                                            url: "../../pages/search/search"
-
-                                        });
-                                    } else if (val == "user") {
-                                        uni.reLaunch({
-                                            url: "../../pages/user/user"
-                                        });
-                                    }
-                                } else {
-                                    // console.log(val)
-                                    that.$router.push({
-                                        name: val
-                                    });
-                                }
-                            });
-                            uni.postMessage({
-                                data: {
-                                    action: "postMessage"
-                                }
-                            });
-                        }, 100);
-                    } else {
-                        that.$router.push({
-                            name: val
-                        });
-                    }
-                }
+                // let that = this;
+                // if (that.authority == "view") {
+                //     if (
+                //         val == "home" ||
+                //         val == "catalog" ||
+                //         val == "search" ||
+                //         val == "user"
+                //     ) {
+                //         setTimeout(() => {
+                //             uni.getEnv(function (res) {
+                //                 if (res.plus || res.miniprogram) {
+                //                     if (val == "home") {
+                //                         uni.reLaunch({
+                //                             url: "../../pages/index/index"
+                //                         });
+                //                     } else if (val == "catalog") {
+                //                         uni.reLaunch({
+                //                             url: "../../pages/category/category"
+                //                         });
+                //                     } else if (val == "search") {
+                //                         uni.reLaunch({
+                //                             // url: "../../pages/search/search",
+                //                             url: "../../pages/search/search"
+                //
+                //                         });
+                //                     } else if (val == "user") {
+                //                         uni.reLaunch({
+                //                             url: "../../pages/user/user"
+                //                         });
+                //                     }
+                //                 } else {
+                //                     // console.log(val)
+                //                     that.$router.push({
+                //                         name: val
+                //                     });
+                //                 }
+                //             });
+                //             uni.postMessage({
+                //                 data: {
+                //                     action: "postMessage"
+                //                 }
+                //             });
+                //         }, 100);
+                //     } else {
+                //         that.$router.push({
+                //             name: val
+                //         });
+                //     }
+                // }
+                this.$router.push({
+                    name: val
+                })
             }
         }
     };
