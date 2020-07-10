@@ -148,10 +148,11 @@
             },
             alertToHome() {
                 //弹窗去首页
-                const content = window.alert("您的权限不足，无法访问！");
+                const content = window.confirm("您的权限不足");
                 if (content) {
+
                     this.$router.push({
-                        name: "home"
+                        name: "login"
                     });
                 }
             },

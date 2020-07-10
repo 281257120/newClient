@@ -34,33 +34,33 @@
 				</div>
 			</div>
 		</header>
-
+        <!--我的钱包  上传支付宝注销两个功能： 秦工要求   2020.7.8-->
 		<section class="user-function-list user-function-frist">
 			<div class="user-item-title">
 				<div class="dis-box padding-all wallet-bt">
 					<h3 class="box-flex">{{$t('lang.my_wallet')}}</h3>
-					<div class="user-more"><router-link :to="{name:'account'}" class="box-flex">{{$t('lang.account_manage')}}<i class="iconfont icon-more"></i></router-link></div>
+					<!--<div class="user-more"><router-link :to="{name:'account'}" class="box-flex">{{$t('lang.account_manage')}}<i class="iconfont icon-more"></i></router-link></div>-->
 				</div>
 			</div>
 			<ul class="user-item-list">
-				<li>
-					<router-link :to="{name:'account'}" class="box-flex">
-						<h4 class="ellipsis-one">{{ data.user_money }}</h4>
-						<p>{{$t('lang.money')}}</p>
-					</router-link>
-				</li>
+				<!--<li>-->
+					<!--<router-link :to="{name:'account'}" class="box-flex">-->
+						<!--<h4 class="ellipsis-one">{{ data.user_money }}</h4>-->
+						<!--<p>{{$t('lang.money')}}</p>-->
+					<!--</router-link>-->
+				<!--</li>-->
 				<li>
 					<router-link :to="{name:'bonus'}" class="box-flex">
 						<h4 class="ellipsis-one">{{ data.bonus }}</h4>
 						<p>{{$t('lang.bonus')}}</p>
 					</router-link>
 				</li>
-				<li>
-					<router-link :to="{name:'account'}" class="box-flex">
-						<h4 class="ellipsis-one">{{ data.pay_points }}</h4>
-						<p>{{$t('lang.integral')}}</p>
-					</router-link>
-				</li>
+				<!--<li>-->
+					<!--<router-link :to="{name:'account'}" class="box-flex">-->
+						<!--<h4 class="ellipsis-one">{{ data.pay_points }}</h4>-->
+						<!--<p>{{$t('lang.integral')}}</p>-->
+					<!--</router-link>-->
+				<!--</li>-->
 				<li>
 					<router-link :to="{name:'userCoupon'}" class="box-flex">
 						<h4 class="ellipsis-one">{{ data.coupons_num }}</h4>
@@ -166,10 +166,12 @@
 					<p>{{$t('lang.my_merchants')}}</p>
 				</a>
 				<template v-if="data.is_bargain > 0">
-				<router-link :to="{name:'bargain'}">
-					<label><i class="user-icon"><img src="../../../assets/img/newuser/icon_9.png" class="img"></i></label>
-					<p>{{$t('lang.my_bargain')}}</p>
-				</router-link>
+
+
+				<!--<router-link :to="{name:'bargain'}">-->
+					<!--<label><i class="user-icon"><img src="../../../assets/img/newuser/icon_9.png" class="img"></i></label>-->
+					<!--<p>{{$t('lang.my_bargain')}}</p>-->
+				<!--</router-link>-->
 				</template>
 				<router-link :to="{name:'giftCard'}">
 					<label><i class="user-icon"><img src="../../../assets/img/newuser/icon_12.png" class="img"></i></label>

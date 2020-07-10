@@ -1,6 +1,7 @@
 <template>
 	<div class="cashier-desk">
-		<!--<a href="javascript:;" class="weizf" data-type="wxpay">微信支付</a><div class="wxzf"><div id="wxpay_dialog" class=""><div class="modal-box"><div class="modal-left"><p><span>请使用 </span><span class="orange">微信 </span><i class="icon icon-qrcode"></i><span class="orange"> 扫一扫</span><br>扫描二维码支付</p><div class="modal-qr"><div class="modal-qrcode"><img src="https://16jbd.16souyun.com/qrcode.php?code_url=weixin%3A%2F%2Fwxpay%2Fbizpayurl%3Fpr%3DaVlbUJy&t=1593507373" /></div><div class="model-info"><img src="https://16jbd.16souyun.com/themes/ecmoban_dsc2017/images/sj.png" class="icon-clock" /><span>二维码有效时长为2小时, 请尽快支付</span></div></div></div><div class="modal-right"><img src="https://16jbd.16souyun.com/themes/ecmoban_dsc2017/images/weixin-qrcode.jpg" /></div></div></div></div>-->
+
+
 		<template v-if="payState == 1 || (payState == 3 && presale_final_pay == 1)">
 	  	<van-cell-group class="van-cell-noright">
 	  		<van-cell class="van-cell-title">
@@ -25,11 +26,13 @@
 			  </van-cell>
 			</van-radio-group>
 		</van-cell-group>
+			<!--点击支付-->
 		<div class="filter-btn">
 			<template v-if="btn == ''">
 				<template v-if="callpayState == 'wxpay'">
 					<a class="btn btn-submit" href="javascript:;" @click="wxcallpay">{{$t('lang.wxcallpay')}}</a>
 				</template>
+				<!--选择支付方式-->
 				<template v-else>
 					<a class="btn btn-disabled">{{$t('lang.fill_in_payment')}}</a>
 				</template>
@@ -140,6 +143,7 @@ export default{
 					order_sn:this.order_sn
 				})
 			}else{
+                // console.log(this.order_sn)
 				this.$store.dispatch('setDoneInfo',{
 					order_sn:this.order_sn
 				})
@@ -162,6 +166,8 @@ export default{
 				order_id:this.doneinfo.order_id,
 				pay_id:this.pay_id
 			}
+			// console.log(o)
+			// console.log(this.pay_list)
 			that.btn = '<a class="btn btn-disabled">'+that.$t('lang.loading')+'</a>'
 			that.disabled = true
 			that.$store.dispatch('setPayTab',o).then((res)=>{
@@ -178,7 +184,8 @@ export default{
 								that.callpayStateData = res.data
 							}
 						}else{
-					        console.log(res.data)
+						    // 全部走这里
+                            // console.log(res.data)
 							that.btn = res.data
 						}
 					}else{
@@ -253,6 +260,10 @@ export default{
 	h4{
 		line-height: 2rem;
 		font-size: 1.5rem;
+	}
+	.filter-btn .weizf{
+		width: 100px !important;
+		height: 50px;
 	}
 }
 </style>

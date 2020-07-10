@@ -22,7 +22,7 @@ function getAddCart(o){
 function getAddPackageCart(o){
 	return new Promise((reslove, reject) => {
 		axios.post(`${window.ROOT_URL}api/v4/cart/addpackage`, qs.stringify(o)).then(res => {
-			reslove(res.data.data)
+			reslove(res.data)
 		}).catch(err =>{
 			console.error(err)
 		})
@@ -297,7 +297,7 @@ function getPayList(o){
 function getPayTab(o){
 	return new Promise((reslove, reject) => {
 		axios.get(`${window.ROOT_URL}api/v4/payment/change_payment`,{ params:o }).then(res => {
-            console.log(res.data)
+            console.log(res.data.data)
             reslove(res.data)
 		}).catch(err =>{
 			console.error(err)
