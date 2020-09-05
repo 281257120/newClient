@@ -37,7 +37,7 @@
     "js-base64": "^2.4.9",
     "less-loader": "^6.1.2",
     "lodash": "^4.17.10",
-    "node-sass": "^4.9.0",
+    "node-sass": "^4.13.1",
     "qrcanvas-vue": "^1.1.0",
     "sass-loader": "^7.0.1",
     "stylus": "^0.54.7",
